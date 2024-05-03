@@ -4,4 +4,4 @@
 .idea
 out
 
-input.txt
+input*.txt
