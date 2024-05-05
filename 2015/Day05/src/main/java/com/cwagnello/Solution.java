@@ -4,8 +4,6 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -20,7 +18,7 @@ public class Solution {
      */
     public static void main(String[] args) {
         try {
-            BufferedReader br = new BufferedReader(new FileReader("/home/cwagnello/workspace/AdventOfCode/2015/Day05/src/com/cwagnello/input.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("src/main/resources/input.txt"));
             int p1Count = 0;
             int p2Count = 0;
             int totalStrings = 0;

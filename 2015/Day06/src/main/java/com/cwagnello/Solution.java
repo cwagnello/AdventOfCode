@@ -18,7 +18,7 @@ public class Solution {
      */
     public static void main(String[] args) {
         init();
-        String filename = "/home/cwagnello/workspace/AdventOfCode/2015/Day06/src/com/cwagnello/input.txt";
+        String filename = "src/main/resources/input.txt";
         try {
             BufferedReader br = new BufferedReader(new FileReader(filename));
             String line;

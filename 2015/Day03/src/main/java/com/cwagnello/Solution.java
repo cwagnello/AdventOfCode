@@ -17,7 +17,7 @@ public class Solution {
      */
     public static void main(String[] args) {
         Set<Point> visitedPoints = new HashSet<>();
-        String filename = "/home/cwagnello/workspace/AdventOfCode/2015/Day03/src/com/cwagnello/input.txt";
+        String filename = "src/main/resources/input.txt";
         try {
             Point current = new Point();
             Point santa = new Point(0,0);

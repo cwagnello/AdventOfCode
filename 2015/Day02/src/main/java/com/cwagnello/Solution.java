@@ -18,8 +18,8 @@ public class Solution {
         try {
             int totalSize = 0;
             int totalLengthOfRibbon = 0;
-            //String filename = "/home/cwagnello/workspace/AdventOfCode/Day02/src/com/cwagnello/test.txt";
-            String filename = "/home/cwagnello/workspace/AdventOfCode/2015/Day02/src/com/cwagnello/input.txt";
+            //String filename = "src/main/resources/test.txt";
+            String filename = "src/main/resources/input.txt";
             BufferedReader br = new BufferedReader(new FileReader(filename));
             String line;
             while((line = br.readLine()) != null) {
