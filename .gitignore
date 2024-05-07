@@ -13,3 +13,4 @@ input*.txt
 
 # Ignore Gradle build output directory
 build
+lib
