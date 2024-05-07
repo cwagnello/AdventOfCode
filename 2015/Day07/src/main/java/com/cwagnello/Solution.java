@@ -29,6 +29,7 @@ public class Solution {
         List<Operator> operations = parse(input, wireMap);
         while (wireMap.get("a").getValue() == null) {
             for (Operator operation : operations) {
+                //System.out.println("Operation: " + operation);
                 operation.evaluate();
             }
         }
@@ -47,7 +48,6 @@ public class Solution {
             }
         }
         System.out.println("2015 Day07 - part2: " + wireMap.get("a").getValue());
-
     }
 
     private static List<Operator> parse(List<String> input, Map<String, Wire> wireMap) {

@@ -1,8 +1,11 @@
 package com.cwagnello;
 
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 @SuperBuilder
+@ToString(callSuper=true)
+
 public class Lshift extends Binary {
     @Override
     public boolean evaluate() {
