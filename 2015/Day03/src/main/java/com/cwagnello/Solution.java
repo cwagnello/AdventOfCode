@@ -1,9 +1,11 @@
 package com.cwagnello;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Scanner;
 import java.util.Set;
 
 /**
@@ -16,51 +18,48 @@ public class Solution {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Set<Point> visitedPoints = new HashSet<>();
-        String filename = "src/main/resources/input.txt";
-        try {
-            Point current = new Point();
-            Point santa = new Point(0,0);
-            Point robot = new Point(0,0);
-            visitedPoints.add(santa);
-            visitedPoints.add(robot);
-
-            BufferedReader br = new BufferedReader(new FileReader(filename));
-            String line;
-            while ((line = br.readLine()) != null) {
-                char[] moves = line.toCharArray();
-                for (int i = 0; i < moves.length; i++) {
-                    current = (i % 2 == 0) ? santa : robot;
-
-                    switch (moves[i]) {
-                        case '^' :
-                            current = current.moveUp();
-                            break;
-                        case '>' :
-                            current = current.moveRight();
-                            break;
-                        case 'v' :
-                            current = current.moveDown();
-                            break;
-                        case '<' :
-                            current = current.moveLeft();
-                            break;
-                        default : 
-                    }
-                    if (i % 2 == 0) { 
-                        santa = current; 
-                    } else { 
-                        robot = current; 
-                    }
-                    //System.out.println("move: " + moves[i] + " " + current + ", hashCode: " + current.hashCode());
-                    visitedPoints.add(current);
-                }
+        File file = new File("src/main/resources/input.txt");
+        List<String> input = new ArrayList<>();
+        try (
+                Scanner sc = new Scanner(file)) {
+            while (sc.hasNextLine()) {
+                String line = sc.nextLine();
+                //assume input data is well formed
+                input.add(line);
             }
-            System.out.println("Number of houses that received at least 1 present: " + visitedPoints.size());
+        } catch (
+                FileNotFoundException e) {
+            throw new RuntimeException(e);
         }
-        catch (IOException ioe) {
-            
-        }
+
+        int numHouses = process(input.get(0), 0, 1).size();
+        System.out.println("2015 Day03 part1: " + numHouses);
+
+        Set<Point> houses = process(input.get(0), 0, 2);
+        houses.addAll(process(input.get(0), 1, 2));
+        numHouses = houses.size();
+        System.out.println("2015 Day03 part2: " + numHouses);
     }
-    
+
+    private static Set<Point> process(String input, int startIndex, int stepSize) {
+        Point santa = new Point(0,0);
+        Set<Point> visitedPoints = new HashSet<>();
+
+        visitedPoints.add(santa);
+
+        char[] moves = input.toCharArray();
+        for (int i = startIndex; i < moves.length; i += stepSize) {
+
+            santa = switch (moves[i]) {
+                case '^' -> santa.moveUp();
+                case '>' -> santa.moveRight();
+                case 'v' -> santa.moveDown();
+                case '<' -> santa.moveLeft();
+                default -> throw new IllegalStateException("Unknown move type: " + moves[i]);
+            };
+            visitedPoints.add(santa);
+        }
+        return visitedPoints;
+    }
+
 }
