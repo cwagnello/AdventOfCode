@@ -1,8 +1,29 @@
 package com.cwagnello;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 public class Solution {
     public static void main(String[] args) {
-        String santaPassword = "cqjxjnds";
+
+        File file = new File("src/main/resources/input.txt");
+        List<String> input = new ArrayList<>();
+        try (
+                Scanner sc = new Scanner(file)) {
+            while (sc.hasNextLine()) {
+                String line = sc.nextLine();
+                //assume input data is well formed
+                input.add(line);
+            }
+        } catch (
+                FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        String santaPassword = input.get(0);
         String newPassword = part1(santaPassword);
         System.out.println("2015 Day11 part1: " + newPassword);
         System.out.println("2015 Day11 part2: " + part1(newPassword));
