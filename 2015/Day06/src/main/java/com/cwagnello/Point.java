@@ -1,5 +1,7 @@
 package com.cwagnello;
 
+import java.util.Objects;
+
 /**
  *
  * @author cwagnello
@@ -8,12 +10,12 @@ public class Point {
     private int x;
     private int y;
 
-    Point() {
+    public Point() {
         this.x = 0;
         this.y = 0;
     }
 
-    Point(int x, int y) {
+    public Point(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -55,23 +57,16 @@ public class Point {
             return false;
         }
         final Point other = (Point) obj;
-        if (this.x != other.x) {
-            return false;
-        }
-        if (this.y != other.y) {
-            return false;
-        }
-        return true;
+        return this.x == other.x && this.y == other.y;
     }
 
     @Override
     public int hashCode() {
-        int hash = x * 997 + y;
-        return 0 ^ hash;
+        return Objects.hash(this.x, this.y);
     }
 
     @Override
     public String toString() {
-        return "(" + x + ", " + y + ")";
+        return String.format("(%s, %s)", this.x, this.y);
     }
 }
