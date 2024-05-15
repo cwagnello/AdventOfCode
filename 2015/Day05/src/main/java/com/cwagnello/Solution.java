@@ -25,11 +25,10 @@ public class Solution {
             String line;
             while((line = br.readLine()) != null) {
                 totalStrings++;
-                if (passesRule1(line) && passesRule2(line) && passesRule3(line)) {
-                    //System.out.println("Strings that are nice: " + line);
+                if (has3orMoreVowels(line) && hasAtLeastOnePairConsecutiveLetters(line) && doesNotHaveCertainPairs(line)) {
                     p1Count++;
                 }
-                if (passesRule4(line) && passesRule5(line)) {
+                if (containsPairTwice(line) && containsThreeCharactersFirstAndThirdMatch(line)) {
                     p2Count++;
                 }
             }
@@ -42,7 +41,7 @@ public class Solution {
             System.out.println("IO exception" + ex);
         }
     }
-    private static boolean passesRule1(String line) {
+    private static boolean has3orMoreVowels(String line) {
         int count = 0;
         Pattern pattern = Pattern.compile("[aeiou]");
         Matcher matcher = pattern.matcher(line);
@@ -54,7 +53,7 @@ public class Solution {
         return count >= 3;
     }
     
-    private static boolean passesRule2(String line) {
+    private static boolean hasAtLeastOnePairConsecutiveLetters(String line) {
         int count = 0;
         Pattern pattern = Pattern.compile("(.)\\1");
         Matcher matcher = pattern.matcher(line);
@@ -65,7 +64,7 @@ public class Solution {
         return count >= 1;
     }
 
-    private static boolean passesRule3(String line) {
+    private static boolean doesNotHaveCertainPairs(String line) {
         Pattern pattern = Pattern.compile("ab|cd|pq|xy");
         Matcher matcher = pattern.matcher(line);
         if (matcher.find()) {
@@ -75,7 +74,7 @@ public class Solution {
         return true;
     }
 
-    private static boolean passesRule4(String line) {
+    private static boolean containsPairTwice(String line) {
         int count = 0;
         Pattern pattern = Pattern.compile("(..).*?\\1");
         Matcher matcher = pattern.matcher(line);
@@ -83,12 +82,12 @@ public class Solution {
             count++;
         }
         if (count > 0) {
-            System.out.println("Number of 2+ consecutive letters in : " + line + " is " + count);
+            //System.out.println("Number of 2+ consecutive letters in : " + line + " is " + count);
         }
         return count >= 1;
     }
 
-    private static boolean passesRule5(String line) {
+    private static boolean containsThreeCharactersFirstAndThirdMatch(String line) {
         int count = 0;
         Pattern pattern = Pattern.compile("(.).\\1");
         Matcher matcher = pattern.matcher(line);
