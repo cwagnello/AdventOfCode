@@ -43,7 +43,7 @@ public class Solution {
 
     private static int part2(List<Reindeer> reindeer, int totalTime) {
         int maxPoints = 0;
-        int[][] distances = new int[reindeer.size()][totalTime + 1];
+        int[] distances = new int[reindeer.size()];
         int[] points = new int[reindeer.size()];
 
         for (int iteration = 1; iteration <= totalTime; iteration++) {
@@ -51,13 +51,13 @@ public class Solution {
             List<Integer> maxIndex =  new ArrayList<>();
             int max = 0;
             for (Reindeer deer : reindeer) {
-                distances[deerIndex][iteration] = distanceTraveled(iteration, deer);
-                if (distances[deerIndex][iteration] > max) {
+                distances[deerIndex] = distanceTraveled(iteration, deer);
+                if (distances[deerIndex] > max) {
                     maxIndex.clear();
                     maxIndex.add(deerIndex);
-                    max = distances[deerIndex][iteration];
+                    max = distances[deerIndex];
                 }
-                else if (distances[deerIndex][iteration] == max) {
+                else if (distances[deerIndex] == max) {
                     maxIndex.add(deerIndex);
                 }
                 deerIndex++;
