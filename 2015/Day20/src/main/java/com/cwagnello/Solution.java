@@ -22,15 +22,15 @@ public class Solution {
             throw new RuntimeException(e);
         }
         int numPresents = parse(input);
-        //System.out.println("2015 Day 20 sample: ");
-        //sample(10);
+//        System.out.println("2015 Day 20 sample: ");
+//        sample(10);
         System.out.println("2015 Day 20 part1: " + part1(numPresents));
         System.out.println("2015 Day 20 part2: " + part2(numPresents));
     }
 
     private static void sample(int numPresents) {
         for (int i = 1; i <= numPresents; i++) {
-            System.out.println(String.format("i: %d, presents: %d", i, factorization(i).stream().mapToInt(Integer::intValue).map(n -> n * 10).sum()));
+            System.out.printf("i: %d, presents: %d%n", i, factorization(i).stream().mapToInt(Integer::intValue).map(n -> n * 10).sum());
         }
     }
     private static int part1(int numPresents) {
