@@ -66,8 +66,8 @@ public class Solution {
                 }
             }
             if (previous.equals(newFormula) && !"e".equals(newFormula)) {
-                Collections.shuffle(replacements);
                 System.out.println(String.format("Reached a dead end: %s, shuffling replacement rules and retrying.", newFormula));
+                Collections.shuffle(replacements);
                 newFormula = formula;
                 count = 0;
             }
