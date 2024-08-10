@@ -6,7 +6,7 @@ public final class Keypad1 {
     private static Keypad1 INSTANCE;
 
     private Keypad1() {
-        /* no public constructer */
+        /* no public constructor */
         this.currentKey = new Pair(1, 1);
     }
 
