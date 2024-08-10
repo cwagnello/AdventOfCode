@@ -12,7 +12,7 @@ public class Keypad2 {
     private static Keypad2 INSTANCE;
 
     private Keypad2() {
-        /* no public constructer */
+        /* no public constructor */
         this.currentKey = new Pair(3, 0);
     }
 
