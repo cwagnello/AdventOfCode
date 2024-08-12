@@ -12,7 +12,7 @@ public class Solution {
         File file = new File("src/main/resources/input.txt");
         List<String> input = new ArrayList<>();
         try (
-                Scanner sc = new Scanner(file)) {
+            Scanner sc = new Scanner(file)) {
             while (sc.hasNextLine()) {
                 String line = sc.nextLine();
                 //assume input data is well formed
