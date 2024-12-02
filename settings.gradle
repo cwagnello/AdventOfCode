@@ -32,6 +32,7 @@ include('2015:Day21')
 include('2015:Day23')
 include('2015:Day24')
 include('2015:Day25')
+
 include('2016:Day01')
 include('2016:Day02')
 include('2016:Day03')
@@ -51,3 +52,5 @@ include('2016:Day16')
 include('2016:Day17')
 include('2016:Day18')
 include('2016:Day19')
+
+include('2024:day01')
