@@ -54,3 +54,4 @@ include('2016:Day18')
 include('2016:Day19')
 
 include('2024:day01')
+include('2024:day02')
