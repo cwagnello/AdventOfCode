@@ -29,8 +29,8 @@ public class Solution {
     }
 
     private static long part2(String input) {
-        String[] sanitized = input.split("don't\\(\\).*?do\\(\\)");
-        return part1(String.join("", sanitized));
+        Pattern pattern = Pattern.compile("don't\\(\\).*?do\\(\\)", Pattern.DOTALL);
+        return part1(String.join("", pattern.split(input)));
     }
 
     private static String readFile(String path, Charset encoding) throws IOException {
