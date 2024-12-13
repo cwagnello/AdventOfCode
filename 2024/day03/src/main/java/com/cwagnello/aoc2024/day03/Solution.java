@@ -1,5 +1,7 @@
 package com.cwagnello.aoc2024.day03;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -8,12 +10,13 @@ import java.nio.file.Paths;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+@Slf4j
 public class Solution {
     public static void main(String[] args) {
 
         String input = readInput();
-        System.out.println("2024 day 2 part 1: " + part1(input));
-        System.out.println("2024 day 2 part 2: " + part2(input));
+        log.info("2024 day 2 part 1: {}", part1(input));
+        log.info("2024 day 2 part 2: {}", part2(input));
     }
 
     private static long part1(String input) {
@@ -44,7 +47,7 @@ public class Solution {
         try {
             input = readFile(file, StandardCharsets.UTF_8);
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("Error reading input file", e);
         }
         return input;
     }

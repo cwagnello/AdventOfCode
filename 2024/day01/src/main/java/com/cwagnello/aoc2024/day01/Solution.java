@@ -1,5 +1,7 @@
 package com.cwagnello.aoc2024.day01;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -9,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
+@Slf4j
 public class Solution {
     public static void main(String[] args) {
         File file = new File("src/main/resources/input.txt");
@@ -19,12 +22,11 @@ public class Solution {
                 //assume input data is well formed
                 input.add(line);
             }
-        } catch (
-                FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
-        System.out.println("2024 day01 part1: " + part1(input));
-        System.out.println("2024 day01 part2: " + part2(input));
+        log.info("2024 day01 part1: {}", part1(input));
+        log.info("2024 day01 part2: {}", part2(input));
     }
 
     public static long part1(final List<String> input) {
