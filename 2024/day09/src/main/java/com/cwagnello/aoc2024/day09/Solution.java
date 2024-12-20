@@ -12,8 +12,8 @@ import java.util.Scanner;
 public class Solution {
     public static void main (String[] args) {
         List<String> input = readFile("src/main/resources/input.txt");
-        log.info("2024 day 8 part 1: {}", part1(parse(input)));
-        log.info("2024 day 8 part 2: {}", part2(parseFullBlocks(input)));
+        log.info("2024 day 9 part 1: {}", part1(parse(input)));
+        log.info("2024 day 9 part 2: {}", part2(parseFullBlocks(input)));
     }
 
     private static long part1(List<Block> blocks) {
