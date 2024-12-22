@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+ext {
+    (year, day) = project.path.substring(1).split(":")
+    day = day.toLowerCase()
+}
+
+application {
+    mainClass = "com.cwagnello.aoc${year}.${day}.Solution"
+}
+
+apply from: '../../common-dependencies-build.gradle'
+
+test {
+    useJUnitPlatform()
+}
