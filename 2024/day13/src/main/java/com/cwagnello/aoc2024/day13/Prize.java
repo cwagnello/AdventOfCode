@@ -28,6 +28,7 @@ public class Prize {
     }
 
     public void solve() {
+        //Source https://www.reddit.com/r/adventofcode/comments/1hd4wda/comment/m1wqntd/
         //B = (y * Xa - x * Ya) / (Yb * Xa - Xb * Ya)
         //A = (x - B * Xb) / Xa
         double B = (double) (location.y() * buttonA.x() - location.x() * buttonA.y()) / (buttonB.y() * buttonA.x() - buttonB.x() * buttonA.y());
