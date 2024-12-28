@@ -12,9 +12,6 @@ application {
     mainClass = "com.cwagnello.aoc${year}.${day}.Solution"
 }
 
-run {
-    standardInput = System.in
-}
 apply from: '../../common-dependencies-build.gradle'
 
 test {

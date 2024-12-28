@@ -18,8 +18,8 @@ public class Solution {
         List<String> input = readFile("src/main/resources/input.txt");
         List<Robot> robots = parse(input);
         //log.info("Sample: {}", part1(robots, 11, 7, 100));
-        log.info("2024 day 12 part 1: {}", part1(robots, 101, 103, 100));
-        log.info("2024 day 12 part 2: {}", part2(robots, 101, 103));
+        log.info("2024 day 14 part 1: {}", part1(robots, 101, 103, 100));
+        log.info("2024 day 14 part 2: {}", part2(robots, 101, 103));
     }
 
     private static long part1(List<Robot> robots, long width, long height, long iterations) {
